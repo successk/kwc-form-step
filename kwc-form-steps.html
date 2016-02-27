@@ -1,0 +1,57 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../kwc-disabled-container/kwc-disabled-container.html">
+
+<dom-module id="kwc-form-steps">
+  <template>
+    <style>
+      .progress {
+        width: 100%;
+      }
+
+      .navigation {
+        margin: 1rem 0;
+        @apply(--kwc-form-steps-navigation)
+      }
+
+      .navigation .button {
+        @apply(--kwc-form-steps-navigation-buttons)
+      }
+
+      .navigation .previous {
+        @apply(--kwc-form-steps-navigation-previous-button)
+      }
+
+      .navigation .next {
+        @apply(--kwc-form-steps-navigation-next-button)
+      }
+
+      .navigation .validate {
+        @apply(--kwc-form-steps-navigation-validate-button)
+      }
+    </style>
+
+    <kwc-disabled-container disabled="[[_disabled]]">
+      <form id="form">
+        <progress value="[[progress]]" max="[[stepCount]]" class="progress"></progress>
+
+        <div class="navigation">
+          <button id="previousButton1" disabled$="[[_previousDisabled]]" class="button previous">[[previousLabel]]</button>
+          <button id="nextButton1" disabled$="[[_nextDisabled]]" hidden$="[[_nextHidden]]" class="button next">[[nextLabel]]</button>
+          <button id="validateButton1" disabled$="[[_nextDisabled]]" hidden$="[[!_nextHidden]]" class="button validate">[[validateLabel]]
+          </button>
+        </div>
+
+        <content></content>
+
+        <div class="navigation">
+          <button id="previousButton2" disabled$="[[_previousDisabled]]" class="button previous">[[previousLabel]]</button>
+          <button id="nextButton2" disabled$="[[_nextDisabled]]" hidden$="[[_nextHidden]]" class="button next">[[nextLabel]]</button>
+          <button id="validateButton2" disabled$="[[_nextDisabled]]" hidden$="[[!_nextHidden]]" class="button validate">[[validateLabel]]
+          </button>
+        </div>
+      </form>
+    </kwc-disabled-container>
+  </template>
+
+  <script src="kwc-form-steps.js"></script>
+</dom-module>

@@ -1,0 +1,30 @@
+{
+  "name": "kwc-form-steps",
+  "version": "0.1.0",
+  "description": "A form with several steps and verification for each step",
+  "license": "MIT",
+  "main": "kwc-form-steps.html",
+  "keywords": [
+    "polymer",
+    "web-component",
+    "form",
+    "steps"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "kwc-field": "^0.2.0",
+    "kwc-disabled-container": "^0.1.0"
+  },
+  "homepage": "https://github.com/successk/kwc-form-steps",
+  "authors": [
+    "Gaëtan Rizio <gaetan@rizio.fr>"
+  ],
+  "moduleType": []
+}

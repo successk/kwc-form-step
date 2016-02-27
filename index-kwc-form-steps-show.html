@@ -1,0 +1,177 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="kwc-form-steps.html">
+<link rel="import" href="kwc-form-step.html">
+<link rel="import" href="../kwc-field/kwc-field.html">
+
+<dom-module id="index-kwc-form-steps-show">
+  <template>
+    <style>
+      .tos {
+        overflow: auto;
+        max-height: 250px;
+      }
+
+      #errorStep1 {
+        color: red;
+      }
+    </style>
+
+    <kwc-form-steps id="form" previous-label="Previous step" next-label="Next step" validate-label="Validate">
+      <kwc-form-step title="Choose a username">
+        <p id="errorStep1"></p>
+        <kwc-field>
+          <div class="kwc-field-label">Username</div>
+          <input type="text" name="username" id="username" value="{{user.username::input}}" required class="kwc-field-field">
+        </kwc-field>
+      </kwc-form-step>
+      
+      <kwc-form-step title="Choose a Password">
+        <kwc-field>
+          <div class="kwc-field-label">Password</div>
+          <input type="password" name="password1" id="password1" value="{{user.password::input}}" required class="kwc-field-field">
+        </kwc-field>
+
+        <kwc-field>
+          <div class="kwc-field-label">Confirm password</div>
+          <input type="password" name="password2" id="password2" value="{{user.password2::input}}" required class="kwc-field-field">
+        </kwc-field>
+      </kwc-form-step>
+      
+      <kwc-form-step title="Optional informations">
+        <kwc-field>
+          <div class="kwc-field-label">Email</div>
+          <input type="email" name="email" id="email" value="{{user.email::input}}" class="kwc-field-field">
+        </kwc-field>
+
+        <kwc-field>
+          <div class="kwc-field-label">Phone</div>
+          <input type="tel" name="phone" id="phone" value="{{user.phone::input}}" class="kwc-field-field">
+        </kwc-field>
+      </kwc-form-step>
+      
+      <kwc-form-step title="Terms of Service">
+        <div class="tos">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod sit amet lacus eu venenatis. Proin gravida id libero
+            fringilla congue. Donec in nulla eu lectus posuere ornare vitae ut velit. Donec cursus ipsum at dolor dapibus,
+            vitae viverra purus rutrum. Quisque consectetur blandit ex ullamcorper interdum. Sed scelerisque facilisis nibh,
+            ut pharetra sapien convallis eu. Curabitur in vestibulum mi. Cras turpis odio, elementum nec condimentum ut,
+            lobortis in velit. Pellentesque fermentum ipsum quis nisi maximus, id sollicitudin tellus porttitor.
+          </p>
+          <p>
+            Suspendisse quis enim sed orci molestie facilisis sagittis vitae sapien. Praesent nec nibh ac tellus sagittis tincidunt a
+            eget risus. Suspendisse nec ipsum eu augue sodales pellentesque id et urna. Integer ac malesuada arcu. Ut consectetur
+            laoreet facilisis. Quisque quam massa, imperdiet eget sollicitudin nec, sollicitudin vel elit. Praesent vitae
+            felis et tortor condimentum euismod. Integer turpis justo, lacinia quis quam non, molestie placerat arcu. Praesent
+            ultrices quis diam eu varius.
+          </p>
+          <p>
+            Donec ac gravida erat. Duis congue lobortis leo, quis facilisis mi cursus in. Aliquam porttitor dui ac enim pulvinar, vitae
+            mollis metus tincidunt. Cras sodales sapien nulla, non congue metus aliquam id. Sed aliquet orci massa. Suspendisse
+            magna mi, iaculis id mollis nec, consectetur in arcu. Vivamus rutrum purus eros, in condimentum nisi condimentum
+            non. Duis augue urna, malesuada id luctus at, venenatis pharetra lorem. Etiam ac lectus pretium, bibendum nisi
+            in, vestibulum neque. Mauris eleifend aliquet lectus vitae dictum. Nulla in lobortis purus. Fusce eget lacus
+            sagittis, mattis magna vel, lacinia mi. Phasellus vel semper ex. Integer ut nisl libero.
+          </p>
+          <p>
+            Vestibulum id aliquam quam. Pellentesque ac elementum urna. Nam accumsan ut odio vel imperdiet. Quisque egestas dignissim
+            ornare. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultricies est id risus sagittis,
+            et porta erat luctus. Nunc fringilla et diam id dignissim. Morbi quis faucibus enim. Quisque in volutpat urna,
+            non tristique dui. Praesent tempor neque sit amet tortor condimentum congue. Morbi eget quam lacus. Nam lobortis,
+            sapien posuere tincidunt vulputate, orci ipsum sollicitudin elit, sit amet condimentum metus magna sed lectus.
+            Suspendisse facilisis molestie justo eget aliquam. Donec in odio aliquam, ultricies orci at, auctor massa. Nam
+            tristique risus sit amet sodales suscipit. Nam diam odio, luctus eu ultricies eu, commodo nec nulla.
+          </p>
+          <p>
+            Nullam efficitur erat in rhoncus ornare. Donec volutpat varius vehicula. Maecenas sollicitudin ex sed sem iaculis, id viverra
+            sapien rutrum. Ut porttitor condimentum feugiat. Curabitur lobortis tempus felis, sit amet pellentesque magna
+            facilisis sit amet. In tempus ullamcorper nisi. Nulla facilisi. Curabitur arcu metus, fermentum nec luctus nec,
+            mattis sit amet velit. Nam molestie nisi nec libero tincidunt, eu sodales mauris porttitor.
+          </p>
+          <p>
+            Vestibulum tempor nibh vitae accumsan rhoncus. Ut facilisis a felis vel molestie. Quisque id elit lobortis, pellentesque
+            tortor a, vestibulum eros. Cras consequat ligula aliquam sapien faucibus auctor. Phasellus est quam, fringilla
+            at tristique ut, bibendum vel urna. Nullam non arcu fermentum metus facilisis ullamcorper. In viverra purus volutpat
+            lorem scelerisque elementum. Proin quis augue mi. Integer leo tellus, gravida pretium nibh vitae, pretium congue
+            tortor. Aliquam erat volutpat.
+          </p>
+          <p>
+            Nam elementum in odio eget feugiat. Ut ut ornare urna, non pellentesque dui. Curabitur vitae ante sed lectus ultrices hendrerit
+            scelerisque vitae arcu. Cras eu sapien tellus. In vulputate suscipit cursus. Ut blandit fringilla consectetur.
+            Integer nec dolor sed nisl fringilla mollis ac ut sapien. Suspendisse bibendum aliquet dui vel ultrices. Nullam
+            finibus augue nec felis consequat, quis ultrices dolor feugiat. Pellentesque urna ante, vehicula quis laoreet
+            sit amet, pretium in turpis. Cras volutpat metus et felis tincidunt ullamcorper. Proin rhoncus, libero ut pretium
+            iaculis, mauris tortor imperdiet diam, rutrum consectetur ante dolor ac dui.
+          </p>
+          <p>
+            Quisque accumsan sit amet arcu ac sagittis. Proin dignissim tellus nec arcu interdum congue. Curabitur id posuere lacus.
+            Vivamus mi augue, sodales aliquam auctor volutpat, fringilla non elit. Donec pulvinar posuere semper. Class aptent
+            taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed tortor sem, molestie id porta
+            rhoncus, lobortis non sapien. Morbi vel urna ligula. Praesent dictum placerat lacus, eget dapibus velit molestie
+            eu. Suspendisse tincidunt finibus leo, quis posuere nulla ornare sed. Curabitur ex magna, cursus eu aliquet vitae,
+            vulputate id ante. Pellentesque at blandit lectus. Nunc auctor auctor massa nec tincidunt. Aenean vel gravida
+            purus.
+          </p>
+          <p>
+            Nulla facilisi. Sed iaculis facilisis nulla, et aliquam justo gravida a. Nulla quis lobortis dui, ac scelerisque mauris.
+            Integer magna orci, sagittis non cursus venenatis, egestas quis lacus. Sed mattis massa dui, in ultricies turpis
+            tincidunt at. Ut id augue nec urna mattis cursus. Vivamus a urna in quam fermentum tempor vel et mi.
+          </p>
+          <p>
+            Pellentesque blandit vestibulum velit, eget tristique nisi pretium sed. Proin quis quam quam. Fusce ultricies id ligula sit
+            amet bibendum. Aenean in dictum lorem. Etiam ultricies, ligula vitae mattis efficitur, orci felis malesuada est,
+            in egestas lorem nisi quis diam. Nunc ultricies aliquam sagittis. Etiam quis ligula nec augue pretium pretium
+            sit amet sit amet mauris. Curabitur quis varius risus, sed euismod arcu. Ut tristique fermentum dui, consequat
+            laoreet est dictum sed. Proin faucibus tristique est accumsan malesuada.
+          </p>
+        </div>
+
+        <kwc-field>
+          <div class="kwc-field-label">Accept</div>
+          <input type="checkbox" checked="{{accepted::change}}" id="accepted" required class="kwc-field-field">
+        </kwc-field>
+      </kwc-form-step>
+    </kwc-form-steps>
+
+    <p id="done" hidden>
+      Form sent.
+    </p>
+  </template>
+
+  <script>
+    Polymer({
+      is: "index-kwc-form-steps-show",
+
+      properties: {
+        user: {
+          type: Object,
+          value: {}
+        }
+      },
+      
+      listeners: {
+        "form.send": "_formSend"
+      },
+      
+      _formSend: function(e) {
+        var that = this
+        // simulate asynchronous server call
+        setTimeout(function(){
+          var hasError = false
+          if (that.user.username === "existing") {
+            that.$.errorStep1.innerText = "This user already exist"
+            hasError = true
+          }
+          if (hasError) {
+            that.$.form.goToStep(1)
+            that.$.form.enable()
+          } else {
+            // valid data: go to another page, hide form…
+            that.$.form.setAttribute("hidden", true)
+            that.$.done.removeAttribute("hidden")
+          }
+        }, 1000)
+      }
+    })
+  </script>
+</dom-module>

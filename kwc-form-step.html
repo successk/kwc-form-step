@@ -1,0 +1,86 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../kwc-disabled-container/kwc-disabled-container.html">
+
+<dom-module id="kwc-form-step">
+  <template>
+    <style>
+      :host.hidden {
+        display: none !important;
+      }
+
+      :host {
+        position: relative;
+      }
+
+      fieldset {
+        @apply(--kwc-form-field-fieldset)
+      }
+
+      legend {
+        @apply(--kwc-form-field-legend)
+      }
+
+      .content {
+        @apply(--kwc-form-field-content)
+      }
+    </style>
+
+    <kwc-disabled-container disabled$="[[disabled]]">
+      <fieldset>
+        <legend>[[title]]</legend>
+
+        <div class="content">
+          <content></content>
+        </div>
+      </fieldset>
+    </kwc-disabled-container>
+  </template>
+
+  <script>
+    Polymer({
+      is: "kwc-form-step",
+
+      properties: {
+        disabled: {
+          type: Boolean,
+          value: false
+        },
+        hasError: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true,
+          notify: true
+        }
+      },
+
+      attached: function () {
+        var that = this
+        Array.from(Polymer.dom(this).querySelectorAll("kwc-field"))
+            .forEach(function (kwcField) {
+              kwcField.addEventListener("has-error-changed", function (e) {
+                that._checkFieldErrors()
+              })
+            })
+      },
+
+      _checkFieldErrors: function () {
+        this.hasError = Array.from(Polymer.dom(this).querySelectorAll("kwc-field"))
+            .some(function (field) {
+              return field.hasError
+            })
+      },
+
+      validating: function () {
+        return Promise.all(Array.from(Polymer.dom(this).querySelectorAll("kwc-field"))
+            .map(function (field) {
+              return field.isValidPromise()
+            }))
+            .then(function (result) {
+              return result.every(function (_) {
+                return _
+              })
+            })
+      }
+    })
+  </script>
+</dom-module>
